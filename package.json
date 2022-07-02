@@ -11,7 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/gabrielrufino/strabot-cli.git"
   },
-  "author": "",
+  "author": {
+    "name": "Gabriel Rufino",
+    "email": "contato@gabrielrufino.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gabrielrufino/strabot-cli/issues"

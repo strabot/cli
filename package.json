@@ -1,0 +1,19 @@
+{
+  "name": "@strabot/cli",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielrufino/strabot-cli.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabrielrufino/strabot-cli/issues"
+  },
+  "homepage": "https://github.com/gabrielrufino/strabot-cli#readme"
+}

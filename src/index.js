@@ -6,6 +6,7 @@ import { hideBin } from 'yargs/helpers'
 import { create } from './handlers/create.js'
 
 yargs(hideBin(process.argv))
+  .scriptName('strabot')
   .command('create [component]', 'Creates a strabot component', (yargs) => {
     return yargs
       .positional('component', {

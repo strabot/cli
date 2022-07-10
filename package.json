@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/gabrielrufino/strabot-cli/issues"
   },
-  "homepage": "https://github.com/gabrielrufino/strabot-cli#readme"
+  "homepage": "https://github.com/gabrielrufino/strabot-cli#readme",
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
 }

@@ -25,5 +25,8 @@
   "devDependencies": {
     "jest": "^28.1.2",
     "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "yargs": "^17.5.1"
   }
 }

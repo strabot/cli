@@ -10,7 +10,7 @@ yargs(hideBin(process.argv))
     return yargs
       .positional('component', {
         choices: ['bot', 'manager'],
-        describe: 'Strabot component like manager or bot',
+        description: 'Strabot component like manager or bot',
         type: 'string'
       })
   }, create)
@@ -22,6 +22,7 @@ yargs(hideBin(process.argv))
   .option('platform', {
     alias: 'p',
     choices: ['discord', 'slack', 'telegram'],
+    description: 'The platform the bot will run it',
     type: 'string'
   })
   .parse()

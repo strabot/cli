@@ -12,7 +12,7 @@
     "lint": "standard",
     "lint:fix": "npm run lint -- --fix",
     "reinstall": "rimraf node_modules && npm ci",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,6 @@
 import inquirer from 'inquirer'
 import { execSync } from 'child_process'
+import { join } from 'path'
 
 const repositories = {
   manager: 'https://github.com/gabrielrufino/strabot-manager.git',
@@ -42,7 +43,6 @@ export async function create (argv) {
   const repository = repositories[component] || repositories.bots[platform]
 
   execSync(`git clone ${repository} ${name}`)
-  execSync(`cd ${name}`)
-  execSync('npx rimraf .git')
-  execSync('npm ci')
+  execSync('npx rimraf .git', { cwd: join(process.cwd(), name) })
+  execSync('npm ci', { cwd: join(process.cwd(), name) })
 }

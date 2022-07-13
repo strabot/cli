@@ -1,0 +1,39 @@
+{
+  "name": "@strabot/cli",
+  "private": false,
+  "version": "0.1.0",
+  "description": "",
+  "main": "./src/index.js",
+  "bin": {
+    "strabot": "./src/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "lint": "standard",
+    "lint:fix": "npm run lint -- --fix",
+    "reinstall": "rimraf node_modules && npm ci",
+    "test": "jest --passWithNoTests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielrufino/strabot-cli.git"
+  },
+  "author": {
+    "name": "Gabriel Rufino",
+    "email": "contato@gabrielrufino.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabrielrufino/strabot-cli/issues"
+  },
+  "homepage": "https://github.com/gabrielrufino/strabot-cli#readme",
+  "devDependencies": {
+    "jest": "^28.1.2",
+    "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "inquirer": "^9.0.0",
+    "rimraf": "^3.0.2",
+    "yargs": "^17.5.1"
+  }
+}

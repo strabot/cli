@@ -1,1 +1,1 @@
-# strabot-cli
+# Strabot - CLI

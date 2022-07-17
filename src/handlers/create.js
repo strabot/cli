@@ -42,7 +42,9 @@ export async function create (argv) {
 
   const repository = repositories[component] || repositories.bots[platform]
 
+  const folder = join(process.cwd(), name)
   execSync(`git clone ${repository} ${name}`)
-  execSync('npx rimraf .git', { cwd: join(process.cwd(), name) })
-  execSync('npm ci', { cwd: join(process.cwd(), name) })
+  execSync('npx rimraf .git', { cwd: folder })
+  execSync('cp .env.example .env', { cwd: folder })
+  execSync('npm ci', { cwd: folder })
 }

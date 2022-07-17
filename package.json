@@ -1,8 +1,8 @@
 {
   "name": "@strabot/cli",
   "private": false,
-  "version": "0.1.1",
-  "description": "",
+  "version": "0.1.2",
+  "description": "Strabot command line tools",
   "main": "./src/index.js",
   "bin": {
     "strabot": "./src/index.js"
@@ -28,11 +28,12 @@
   },
   "homepage": "https://github.com/gabrielrufino/strabot-cli#readme",
   "devDependencies": {
-    "jest": "^28.1.2",
+    "jest": "^28.1.3",
     "standard": "^17.0.0"
   },
   "dependencies": {
-    "inquirer": "^9.0.0",
+    "inquirer": "^9.0.1",
+    "randomstring": "^1.2.2",
     "rimraf": "^3.0.2",
     "yargs": "^17.5.1"
   }

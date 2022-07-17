@@ -2,7 +2,7 @@
   "name": "@strabot/cli",
   "private": false,
   "version": "0.1.1",
-  "description": "",
+  "description": "Strabot command line tools",
   "main": "./src/index.js",
   "bin": {
     "strabot": "./src/index.js"

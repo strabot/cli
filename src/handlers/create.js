@@ -48,10 +48,10 @@ export async function create (argv) {
 
     const folder = join(process.cwd(), name)
     await exec(`git clone ${repository} ${name}`)
-    await exec('npx rimraf .git', { cwd: folder })
-    await exec('cp .env.example .env', { cwd: folder })
-    await exec('npm ci', { cwd: folder })
-
+    process.chdir(folder)
+    await exec('npx rimraf .git')
+    await exec('cp .env.example .env')
+    await exec('npm ci')
     loading.succeed('Completed')
   } catch (error) {
     console.error(error)

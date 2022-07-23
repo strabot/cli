@@ -42,16 +42,16 @@ export async function create (argv) {
           })).platform
         : undefined
     } = argv
-  
+
     const loading = ora('Creating project').start()
     const repository = repositories[component] || repositories.bots[platform]
-  
+
     const folder = join(process.cwd(), name)
     await exec(`git clone ${repository} ${name}`)
     await exec('npx rimraf .git', { cwd: folder })
     await exec('cp .env.example .env', { cwd: folder })
     await exec('npm ci', { cwd: folder })
-  
+
     loading.succeed('Completed')
   } catch (error) {
     console.error(error)

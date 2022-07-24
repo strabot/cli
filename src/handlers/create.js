@@ -1,6 +1,7 @@
 import inquirer from 'inquirer'
 import ora from 'ora'
 import { join } from 'path'
+import { spawn } from 'child_process'
 
 import { exec } from '../helpers/index.js'
 
@@ -53,6 +54,13 @@ export async function create (argv) {
     await exec('cp .env.example .env')
     await exec('npm ci')
     loading.succeed('Completed')
+
+    spawn('npm', ['run', 'develop'])
+      .stdout
+      .pipe(process.stdout)
+
+    await exec('npx wait-on http://localhost:1337')
+    await exec('npx strabot populate')
   } catch (error) {
     console.error(error)
   }

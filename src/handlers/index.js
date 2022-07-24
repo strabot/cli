@@ -1,2 +1,2 @@
 export { create } from './create.js'
-export { seed } from './seed.js'
+export { populate } from './populate.js'

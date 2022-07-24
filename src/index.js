@@ -3,7 +3,7 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-import { create } from './handlers/create.js'
+import { create, populate } from './handlers/index.js'
 
 yargs(hideBin(process.argv))
   .scriptName('strabot')
@@ -26,4 +26,5 @@ yargs(hideBin(process.argv))
     description: 'The platform the bot will run it',
     type: 'string'
   })
+  .command('populate', 'Creates example data on manager', populate)
   .parse()

@@ -1,6 +1,9 @@
 import inquirer from 'inquirer'
-import { execSync } from 'child_process'
+import ora from 'ora'
 import { join } from 'path'
+import { spawn } from 'child_process'
+
+import { exec } from '../helpers/index.js'
 
 const repositories = {
   manager: 'https://github.com/gabrielrufino/strabot-manager.git',
@@ -12,39 +15,53 @@ const repositories = {
 }
 
 export async function create (argv) {
-  const {
-    component,
-    name = (await inquirer.prompt({
-      name: 'name',
-      type: 'input'
-    })).name,
-    platform = component === 'bot'
-      ? (await inquirer.prompt({
-          name: 'platform',
-          type: 'list',
-          choices: [
-            {
-              name: 'Discord',
-              value: 'discord'
-            },
-            {
-              name: 'Slack',
-              value: 'slack'
-            },
-            {
-              name: 'Telegram',
-              value: 'telegram'
-            }
-          ]
-        })).platform
-      : undefined
-  } = argv
+  try {
+    const {
+      component,
+      name = (await inquirer.prompt({
+        name: 'name',
+        type: 'input'
+      })).name,
+      platform = component === 'bot'
+        ? (await inquirer.prompt({
+            name: 'platform',
+            type: 'list',
+            choices: [
+              {
+                name: 'Discord',
+                value: 'discord'
+              },
+              {
+                name: 'Slack',
+                value: 'slack'
+              },
+              {
+                name: 'Telegram',
+                value: 'telegram'
+              }
+            ]
+          })).platform
+        : undefined
+    } = argv
 
-  const repository = repositories[component] || repositories.bots[platform]
+    const loading = ora('Creating project').start()
+    const repository = repositories[component] || repositories.bots[platform]
 
-  const folder = join(process.cwd(), name)
-  execSync(`git clone ${repository} ${name}`)
-  execSync('npx rimraf .git', { cwd: folder })
-  execSync('cp .env.example .env', { cwd: folder })
-  execSync('npm ci', { cwd: folder })
+    const folder = join(process.cwd(), name)
+    await exec(`git clone ${repository} ${name}`)
+    process.chdir(folder)
+    await exec('npx rimraf .git')
+    await exec('cp .env.example .env')
+    await exec('npm ci')
+    loading.succeed('Completed')
+
+    spawn('npm', ['run', 'develop'])
+      .stdout
+      .pipe(process.stdout)
+
+    await exec('npx wait-on http://localhost:1337')
+    await exec('npx strabot populate')
+  } catch (error) {
+    console.error(error)
+  }
 }

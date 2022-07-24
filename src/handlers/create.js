@@ -55,12 +55,14 @@ export async function create (argv) {
     await exec('npm ci')
     loading.succeed('Completed')
 
-    spawn('npm', ['run', 'develop'])
-      .stdout
-      .pipe(process.stdout)
-
-    await exec('npx wait-on http://localhost:1337')
-    await exec('npx @strabot/cli populate')
+    if (component === 'manager') {
+      spawn('npm', ['run', 'develop'])
+        .stdout
+        .pipe(process.stdout)
+  
+      await exec('npx wait-on http://localhost:1337')
+      await exec('npx @strabot/cli populate')
+    }
   } catch (error) {
     console.error(error)
   }

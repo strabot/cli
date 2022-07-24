@@ -60,7 +60,7 @@ export async function create (argv) {
       .pipe(process.stdout)
 
     await exec('npx wait-on http://localhost:1337')
-    await exec('npx strabot populate')
+    await exec('npx @strabot/cli populate')
   } catch (error) {
     console.error(error)
   }

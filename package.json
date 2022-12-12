@@ -32,14 +32,14 @@
     "standard": "^17.0.0"
   },
   "dependencies": {
-    "dotenv": "^16.0.1",
-    "inquirer": "^9.0.2",
-    "knex": "^2.2.0",
+    "dotenv": "^16.0.3",
+    "inquirer": "^9.1.4",
+    "knex": "^2.3.0",
     "ora": "^6.1.2",
-    "randomstring": "^1.2.2",
+    "randomstring": "^1.2.3",
     "rimraf": "^3.0.2",
-    "sqlite3": "^5.0.10",
+    "sqlite3": "^5.1.4",
     "wait-on": "^6.0.1",
-    "yargs": "^17.5.1"
+    "yargs": "^17.6.2"
   }
 }

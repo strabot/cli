@@ -59,7 +59,7 @@ export async function create (argv) {
       spawn('npm', ['run', 'develop'])
         .stdout
         .pipe(process.stdout)
-  
+
       await exec('npx wait-on http://localhost:1337')
       await exec('npx @strabot/cli populate')
     }

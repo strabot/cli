@@ -34,7 +34,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "inquirer": "^9.1.4",
-    "knex": "^2.3.0",
+    "knex": "^2.4.2",
     "ora": "^6.1.2",
     "randomstring": "^1.2.3",
     "rimraf": "^3.0.2",

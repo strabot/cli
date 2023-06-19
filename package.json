@@ -1,7 +1,7 @@
 {
   "name": "@strabot/cli",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Strabot command line tools",
   "main": "./src/index.js",
   "bin": {
@@ -9,7 +9,7 @@
   },
   "type": "module",
   "scripts": {
-    "lint": "standard",
+    "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "reinstall": "npx rimraf node_modules && npm ci",
     "test": "jest --passWithNoTests"
@@ -28,15 +28,16 @@
   },
   "homepage": "https://github.com/gabrielrufino/strabot-cli#readme",
   "devDependencies": {
-    "jest": "^28.1.3",
-    "standard": "^17.0.0"
+    "@gabrielrufino/eslint-config": "^1.5.0",
+    "eslint": "^8.43.0",
+    "jest": "^28.1.3"
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "inquirer": "^9.2.2",
+    "dotenv": "^16.3.1",
+    "inquirer": "^9.2.7",
     "knex": "^2.4.2",
-    "ora": "^6.3.0",
-    "randomstring": "^1.2.3",
+    "ora": "^6.3.1",
+    "randomstring": "^1.3.0",
     "rimraf": "^3.0.2",
     "sqlite3": "^5.1.6",
     "wait-on": "^6.0.1",

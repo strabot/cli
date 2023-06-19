@@ -1,8 +1,8 @@
-name: Package CD
+name: CD
 
 on:
   workflow_run:
-    workflows: ['Package CI']
+    workflows: ['CI']
     types:
       - completed
     branches:
@@ -11,14 +11,12 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js 18
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        registry-url: 'https://registry.npmjs.org'
-    - run: npm publish --access public
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

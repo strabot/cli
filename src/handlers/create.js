@@ -7,11 +7,11 @@ import ora from 'ora';
 import { exec } from '../helpers/index.js';
 
 const repositories = {
-  manager: 'https://github.com/gabrielrufino/strabot-manager.git',
+  manager: 'https://github.com/strabot/strabot-manager.git',
   bots: {
-    discord: 'https://github.com/gabrielrufino/strabot-discord.git',
-    slack: 'https://github.com/gabrielrufino/strabot-slack.git',
-    telegram: 'https://github.com/gabrielrufino/strabot-telegram.git',
+    discord: 'https://github.com/strabot/strabot-discord.git',
+    slack: 'https://github.com/strabot/strabot-slack.git',
+    telegram: 'https://github.com/strabot/strabot-telegram.git',
   },
 };
 
